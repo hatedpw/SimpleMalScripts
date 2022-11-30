@@ -41,8 +41,16 @@ def extract():
 			print(line)
 		elif re.match(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", line):
 			print(line)
-		elif re.match(r"[A-Za-z0-9+/]{4}={0,3}", line):
+		elif re.match(r"[A-Za-z0-9+/]{16}={0,3}", line):
 			print(line)
+	#sort the file from largest to smallest
+	with open(sys.argv[1] + ".strings.txt", "r") as f:
+		lines = f.readlines()
+		lines.sort(key=len, reverse=True)
+	with open(sys.argv[1] + ".strings.txt", "w") as f:
+		for line in lines:
+			f.write(line)
+
 
 if __name__ == "__main__":
 	pullstring()
