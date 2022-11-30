@@ -41,6 +41,8 @@ def extract():
 			print(line)
 		elif re.match(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", line):
 			print(line)
+		elif re.match(r"[A-Za-z0-9+/]{4}={0,3}", line):
+			print(line)
 
 if __name__ == "__main__":
 	pullstring()
